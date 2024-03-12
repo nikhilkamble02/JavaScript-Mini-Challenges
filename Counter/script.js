@@ -1,23 +1,19 @@
-const count = document.querySelector(".count");
-const decrement = document.querySelector(".decrement");
-const increment = document.querySelector(".increment");
-const changeBy = document.querySelector(".changeBy");
-const reset = document.querySelector(".reset");
+const count = document.querySelector("#count");
+const add = document.querySelector("#add");
+const sub = document.querySelector("#sub");
+const diff = document.querySelector("#diff");
+const reset = document.querySelector("#reset");
 
 
+add.addEventListener("click", function () {
+  count.textContent = +count.textContent + parseInt(diff.value);
+});
 
-decrement.addEventListener('click', () => {
-    let changeByValue = parseInt(changeBy.value)
-    let counterValue = parseInt(count.innerText);
-    count.innerText = counterValue - changeByValue
+sub.addEventListener("click", function () {
+  count.textContent = +count.textContent - parseInt(diff.value);
+});
 
-})
-increment.addEventListener('click', () => {
-    let changeByValue = parseInt(changeBy.value)
-    let counterValue = parseInt(count.innerText);
-    count.innerText = counterValue + +changeByValue
-})
-
-reset.addEventListener('click', () => {
-    count.innerText = 0;
+reset.addEventListener("click", function(){
+  count.textContent = 0;
+  diff.value = "1"
 })
